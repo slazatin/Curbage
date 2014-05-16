@@ -1,0 +1,19 @@
+<h1>All My Posts</h1>
+
+  <% @curb.each do |c| %>
+    <ul>
+     <strong><%= c.subject %></strong>
+     </br>
+     
+     <p><%=c.content%></p>
+
+       <tr>
+          <td><%= link_to 'Details', curb_path(c) %></td> 
+        </tr>
+    </ul>
+
+  <% end %>
+  <%= link_to 'Create New Post', new_curb_path %>
+
+
+

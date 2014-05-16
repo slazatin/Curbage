@@ -1,0 +1,16 @@
+<h1>Your Post</h1>
+
+<p> Here Are Your Posts:</p>
+    <ul>
+     <strong><%= @curb.subject %></strong>
+     </br>
+       <p><%=@curb.content%></p>
+     <p><%=@curb.address%></p>
+       <tr>
+          <td><%= link_to 'Edit', edit_curb_path %></td>
+          <td><%= link_to 'Delete', @curb, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    </ul>
+
+
+<%= link_to "Back to Posts", curbs_path%>
