@@ -6,19 +6,19 @@ class ApplicationController < ActionController::Base
 
     def authenticate_user
     if !self.current_user
-      redirect_to new_sessions_path
+      redirect_to new_session_path
     end
   end
 
-  def sign_in(user)
-  	session[:remember_token] = user.id
-  	@current_user =user
-  end
+  # def sign_in(user)
+  # 	session[:remember_token] = user.id
+  # 	@current_user =user
+  # end
 
-  def sign_out(user)
-  	session.delete(:remember_token)
-  	@current_user =nil
-  end
+  # def sign_out(user)
+  # 	session.delete(:remember_token)
+  # 	@current_user =nil
+  # end
 
 
 end
