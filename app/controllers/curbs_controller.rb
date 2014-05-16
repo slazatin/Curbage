@@ -14,14 +14,20 @@ class CurbsController < ApplicationController
 	end
 
 	def edit 
-	@curb = Curb.find(params[:id])
+		@curb = Curb.find(params[:id])
  
 	end
 
 	def create
-		Curb.create(curb_params)
-		redirect_to curbs_path
-	end
+	  @curb = Curb.new(curb_params)
+
+    if @curb.save
+      flash[:succes] = "New curb Created!"
+      redirect_to curbs_path
+    else
+      render 'new'
+    end
+  end
 
 	  def update
 	  	@curb = Curb.find(params[:id])
@@ -39,15 +45,17 @@ class CurbsController < ApplicationController
 	    redirect_to curbs_path, notice: 'Your Post was Deleted!'
 	  end
 
+
 	private
 
-	def set_curb
-		@curb = Curb.find(params[:id])
-	end
+		def set_curb
+			@curb = Curb.find(params[:id])
+		end
 
-	def curb_params
-		params.require(:curb).permit(:subject, :address, :content)
-	end
+		def curb_params
+			params.require(:curb).permit(:subject, :address, :content, :picture)
+		end
 
-	end
+end
+
 

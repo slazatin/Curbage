@@ -1,19 +1,25 @@
-<h1>All My Posts</h1>
-
+<h1>Curb Listings In Your Area</h1>
+</br>
+<button><%= link_to 'Create New Post', new_curb_path %></button>
+</br>
+</br>
   <% @curb.each do |c| %>
     <ul>
-     <strong><%= c.subject %></strong>
+     <strong><%= c.subject %> - </strong>
+     <tr>
+          <td><%= link_to 'Details', curb_path(c) %></td> 
+        </tr>
      </br>
      
      <p><%=c.content%></p>
+     <%= image_tag c.picture.url, :style => "width:300px;height:250px; border-radius:600px"  %>
+     </br>
 
-       <tr>
-          <td><%= link_to 'Details', curb_path(c) %></td> 
-        </tr>
+       
     </ul>
 
   <% end %>
-  <%= link_to 'Create New Post', new_curb_path %>
+  
 
 
 

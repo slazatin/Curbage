@@ -1,16 +1,22 @@
 <h1>Your Post</h1>
-
-<p> Here Are Your Posts:</p>
-    <ul>
+ 
      <strong><%= @curb.subject %></strong>
      </br>
-       <p><%=@curb.content%></p>
-     <p><%=@curb.address%></p>
+     <p><%=@curb.content%></p>
+     <p>
+     <strong>Address:</strong>
+     <%=@curb.address%>
+     </p>
+     
+
+     <%= image_tag @curb.picture.url %>
+	</br>
        <tr>
-          <td><%= link_to 'Edit', edit_curb_path %></td>
-          <td><%= link_to 'Delete', @curb, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit Post /', edit_curb_path %></td> 
+
+          <%= link_to " ", @curb, {method: :delete, data:{confirm: "Are you sure you want to delete this post?"}, class: "glyphicon glyphicon-trash"} %>
         </tr>
-    </ul>
+    	
+</br>
 
-
-<%= link_to "Back to Posts", curbs_path%>
+<button><%= link_to "Back", curbs_path%></button>

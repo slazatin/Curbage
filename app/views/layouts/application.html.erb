@@ -17,7 +17,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Curbage</a>
+      <a class="navbar-brand" href='/curbs'>Curbage</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,20 +26,29 @@
         <li class="active"><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">City: Venice <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#">Venice</a></li>
+            <li><a href="#">Santa Monica</a></li>
+             <li><a href="#">Culver</a></li>
+            
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">View All</a></li>
+  
           </ul>
         </li>
       </ul>
      
       <ul class="nav navbar-nav navbar-right">
+
+        <% if !@current_user %>
+            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Sign In", new_session_path %></li>
+          <% else %>
+            <li>Hello, <%= current_user.name %></li>
+            <li><%= link_to "Sign Out", sessions_path, :method => :delete %></li>
+          <% end %>
+
         <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -55,8 +64,8 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+<div class="mainContainer">
 <%= yield %>
-
+</div>
 </body>
 </html>

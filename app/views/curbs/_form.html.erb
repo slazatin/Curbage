@@ -1,11 +1,11 @@
 <%= form_for @curb do |f| %>
-Subject: <%= f.text_field :subject %>
+Title: <%= f.text_field :subject %>
 </br>
 Address: <%= f.text_field :address %>
 </br>
 Message: <%= f.text_field :content%>
 </br>
-
+Upload Image: <%= f.file_field :picture %>
 </br>
 <%= f.submit "Curb It"%>
 <%end%>
