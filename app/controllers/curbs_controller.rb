@@ -1,9 +1,10 @@
 class CurbsController < ApplicationController
- # before_action :authenticate_user
+ before_action :authenticate_user
  before_action :set_curb, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@curb = Curb.all
+		@user = User.all
 	end
 
 	def show
@@ -12,6 +13,7 @@ class CurbsController < ApplicationController
 
 	def new
 		@curb = Curb.new
+		@user = User.all
 	end
 
 	def edit 

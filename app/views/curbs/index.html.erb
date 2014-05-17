@@ -6,10 +6,12 @@
   <% @curb.each do |c| %>
     <ul>
      <strong><%= c.subject %> - </strong>
-     <tr>
+    <tr>
           <td><%= link_to 'Details', curb_path(c) %></td> 
-        </tr>
-     </br>
+          <td><%= @user%></td>
+    </tr>
+
+    </br>
      
      <p><%=c.content%></p>
      <%= image_tag c.picture.url, :style => "width:300px;height:250px; border-radius:600px"  %>

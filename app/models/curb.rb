@@ -10,5 +10,7 @@ class Curb
   field :subject, type:String
   field :address, type:String
   field :content, type:String
+
+  belongs_to :user
   
 end

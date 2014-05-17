@@ -6,7 +6,7 @@ class User
   field :password_digest, type: String
 
   validates :email, :name, uniqueness: :true, presence: :true
-
+  has_many :curbs
 
 def password
 	@password
