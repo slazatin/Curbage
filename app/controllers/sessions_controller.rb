@@ -11,14 +11,14 @@ class SessionsController < ApplicationController
     else
       session[:remember_token] = @user.id
       @current_user = @user
-      redirect_to root_path
+      redirect_to curbs_path
     end
 
   end
 
   def destroy
     session.delete(:remember_token)
-    redirect_to root_path
+    redirect_to curbs_path
   end
 
 end

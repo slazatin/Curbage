@@ -10,15 +10,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def sign_in(user)
-  # 	session[:remember_token] = user.id
-  # 	@current_user =user
-  # end
+  def sign_in(user)
+  	session[:remember_token] = user.id
+  	@current_user =user
+  end
 
-  # def sign_out(user)
-  # 	session.delete(:remember_token)
-  # 	@current_user =nil
-  # end
+  def sign_out(user)
+  	session.delete(:remember_token)
+  	@current_user =nil
+  end
 
 
 end

@@ -7,11 +7,12 @@ gem 'rails', '4.1.0'
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'genghis', '~> 1.4.1'
 gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
-
+gem 'aws-sdk'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass' 
 gem 'rails_12factor'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
