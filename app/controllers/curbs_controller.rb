@@ -5,20 +5,22 @@ class CurbsController < ApplicationController
 	def index
 		@curb = Curb.all
 		@user = User.all
+	
 	end
 
 	def show
 		@curb= Curb.find(params[:id])
-		@current_user =  current_user
 	end
 
 	def new
 		@curb = Curb.new
 		@user = User.all
+		
 	end
 
 	def edit 
 		@curb = Curb.find(params[:id])
+		@user = User.all
  
 	end
 
@@ -57,7 +59,7 @@ class CurbsController < ApplicationController
 		end
 
 		def curb_params
-			params.require(:curb).permit(:subject, :address, :content, :picture)
+			params.require(:curb).permit(:name, :subject, :address, :content, :picture)
 		end
 
 end

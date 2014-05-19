@@ -1,24 +1,26 @@
-<h1>Your Post</h1>
+<h1><%= @curb.subject %></h1>
  
-     <strong><%= @curb.subject %></strong>
      </br>
      <p><%=@curb.content%></p>
      <p>
      <strong>Address:</strong>
      <%=@curb.address%>
      </p>
+
      
 
      <%= image_tag @curb.picture.url %>
 	</br>
+  </br>
 
-  <% if  @user == @current_user %>
+  <% if @current_user.id.to_s == @curb.name.to_s %>
        <tr>
-          <td><%= link_to 'Edit Post /', edit_curb_path %></td> 
+          <td><%= link_to 'Edit', edit_curb_path,:class => "btn btn-default btn-xs" %></td> 
 
-          <%= link_to " ", @curb, {method: :delete, data:{confirm: "Are you sure you want to delete this post?"}, class: "glyphicon glyphicon-trash"} %>
+          <%= link_to " ", @curb, {method: :delete, data:{confirm: "Are you sure you want to delete this post?"}, class: "glyphicon glyphicon-trash btn btn-default btn-xs"} %>
         </tr>
     <%end%>
 </br>
 
-<button><%= link_to "Back", curbs_path%></button>
+
+<%= link_to "Back to Curbs", curbs_path, :class =>"btn btn-default "%>

@@ -17,8 +17,11 @@
 @import 'bootstrap';
 body {
 	text-align:center;
+	background-image:url("sidewalk.jpg");
 
-	.slides{
-		// margin-top:40px;
-	}
+.navbar{
+	border-bottom:2px solid black;
+
+}
+
 }

@@ -1,3 +1,19 @@
 // Place all the styles related to the curbs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.item{
+	font-size:15pt;
+	
+	.content{
+		margin: 0 auto;
+		background-color:white;
+		width:500px;
+		border:1px solid black;
+		margin-top:10px;
+	}
+}
+
+.curb_form{
+	font-size:15pt;
+
+}

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 			session[:remember_token]=@user.id.to_s
 			redirect_to :root
 		else
-			redirect_to new_user
+			render 'new'
 		end
 	end
 

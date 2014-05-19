@@ -25,16 +25,17 @@
   
        <div class="item">
        <div>
-       <%= image_tag c.picture.url, :style => "width:350px;height:300px; border-radius:1000000px"  %>
+       <%= image_tag c.picture.url, :style => "width:350px;height:300px; border-radius:1000px;"%>
        </div>
-           
+          <div class="content">
              <strong><%= c.subject %> - </strong>
                   <tr>
-                        <td><%= link_to 'Details', curb_path(c) %></td> 
-                        <td>User Name</td>
+                        <td><%= link_to 'More Info', curb_path(c) %></td> 
+                        
                   </tr>
                   <p><%=c.content%></p>
-           
+                  <p>posted by:<%=@current_user.name%></p>
+          </div>
       </div>
      <%end%>
   </div>

@@ -43,23 +43,20 @@
       <ul class="nav navbar-nav navbar-right">
 
         <% if !current_user %>
-            <li><%= link_to "Sign Up", new_user_path %></li>
             <li><%= link_to "Sign In", new_sessions_path %></li>
-          <% else %>
-            <li>Hello, <%= current_user.name %></li>
-            <li><%= link_to "Sign Out", sessions_path, :method => :delete %></li>
-          <% end %>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        
+        <% else %>
+          
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %><b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#">My Posts</a></li>
+            <li><a href="#">Account Settings</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><%= link_to "Sign Out", sessions_path, :method => :delete %></li>
           </ul>
         </li>
+          <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

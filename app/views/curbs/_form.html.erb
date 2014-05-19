@@ -1,11 +1,20 @@
+<div class="curb_form">
+
 <%= form_for @curb do |f| %>
-Title: <%= f.text_field :subject %>
+
 </br>
-Address: <%= f.text_field :address %>
+
+Title: <%= f.text_field :subject, :placeholder => 'Free Stuff'  %>
+
+Posted by:<%= f.collection_select :name, @user, :id, :name %>
+
+
+Address: <%= f.text_field :address, :style => "width:200px;height:80px;" %>
+</br></br>
+Message: <%= f.text_field :content, :style => "width:300px;height:150px;"%>
+</br></br>
+<%= f.file_field :picture,  :style => "margin:0 auto;",:class =>"form-group" %>
 </br>
-Message: <%= f.text_field :content%>
-</br>
-Upload Image: <%= f.file_field :picture %>
-</br>
-<%= f.submit "Curb It"%>
+<%= f.submit "Curb It", :class =>"btn btn-default btn-lg"%>
 <%end%>
+</div>
