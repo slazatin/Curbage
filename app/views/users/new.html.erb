@@ -1,10 +1,14 @@
+
+<div class="jumbotron">
 <h1>Sign Up</h1>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, :url => users_path do |f|%>
   Name: <%= f.text_field :name %>
   Email: <%= f.text_field :email %>
   Password: <%= f.password_field :password %>
-  <%= f.submit %>
+  <%= f.submit "Sign Up", :class =>"btn btn-primary btn-lg"%>
+
 <% end %>
 
-<%= link_to "Sign In", new_sessions_path %>
+
+</div>

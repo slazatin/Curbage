@@ -1,7 +1,21 @@
-<h1>Login</h1>
-
-<%= form_for :session, :url => sessions_path do |f| %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  <%= f.submit "Login" %>
+<% if flash[:error] %>
+  <div class="alert alert-success"><%= flash[:error] %></div>
 <% end %>
+
+<div class="jumbotron">
+  <h1>Welcome to CurbAlert!</h1>
+  <p><%= form_for :session, :url => sessions_path do |f| %>
+  <p>Email:</p> <%= f.text_field :email %>
+  </br> </br>
+  <p>Password:</p> <%= f.password_field :password %>
+  </br>
+   </br>
+  <%= f.submit "Login", :class =>"btn btn-primary btn-lg"%></p>
+   </br>
+  <%= link_to "Sign Up", new_user_path, :class =>"btn btn-primary btn-lg"%></p>
+
+<% end %>
+
+</div>
+
+

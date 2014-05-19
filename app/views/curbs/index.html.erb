@@ -1,26 +1,58 @@
-<h1>Curb Listings In Your Area</h1>
+<% if flash[:success] %>
+  <div class="alert alert-success"><%= flash[:success] %></div>
+<% end %>
 </br>
-<button><%= link_to 'Create New Post', new_curb_path %></button>
+
 </br>
 </br>
-  <% @curb.each do |c| %>
-    <ul>
-     <strong><%= c.subject %> - </strong>
-    <tr>
-          <td><%= link_to 'Details', curb_path(c) %></td> 
-          <td><%= @user%></td>
-    </tr>
 
-    </br>
-     
-     <p><%=c.content%></p>
-     <%= image_tag c.picture.url, :style => "width:300px;height:250px; border-radius:600px"  %>
-     </br>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
 
-       
-    </ul>
+  <!-- Wrapper for slides -->
 
-  <% end %>
+  <div class="carousel-inner">
+      <div class="item active">
+          <div class="jumbotron">
+  <h1>Welcome to CurbAlert</h1>
+  <p>Scroll to see free stuff in your area!</p>
+
+</div>
+          <div class="carousel-caption">
+          </div>
+      </div>
+
+    <% @curb.each do |c| %>
+  
+       <div class="item">
+       <div>
+       <%= image_tag c.picture.url, :style => "width:350px;height:300px; border-radius:1000000px"  %>
+       </div>
+           
+             <strong><%= c.subject %> - </strong>
+                  <tr>
+                        <td><%= link_to 'Details', curb_path(c) %></td> 
+                        <td>User Name</td>
+                  </tr>
+                  <p><%=c.content%></p>
+           
+      </div>
+     <%end%>
+  </div>
+
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+ 
+  
+
+
+
   
 
 

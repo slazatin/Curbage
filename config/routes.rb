@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
 resources :curbs
-resources :users, only: [:new, :create]
-resource :sessions, only:[:new,:create,:destroy]
+resources :users, only: [:new, :create], :controller => "users"
+
+resource :sessions, only: [:new, :create, :destroy]
 
 root 'curbs#index'
     # The priority is based upon order of creation: first created -> highest priority.

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include ApplicationHelper
 
-    def authenticate_user
+  def authenticate_user
     if !self.current_user
       redirect_to new_sessions_path
     end

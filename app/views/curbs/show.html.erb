@@ -11,12 +11,14 @@
 
      <%= image_tag @curb.picture.url %>
 	</br>
+
+  <% if  @user == @current_user %>
        <tr>
           <td><%= link_to 'Edit Post /', edit_curb_path %></td> 
 
           <%= link_to " ", @curb, {method: :delete, data:{confirm: "Are you sure you want to delete this post?"}, class: "glyphicon glyphicon-trash"} %>
         </tr>
-    	
+    <%end%>
 </br>
 
 <button><%= link_to "Back", curbs_path%></button>

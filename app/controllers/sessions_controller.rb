@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def new
   end
 
@@ -11,6 +12,7 @@ class SessionsController < ApplicationController
     else
       session[:remember_token] = @user.id.to_s
       @current_user = @user
+      flash[:success] = "Welcome back!"
       redirect_to curbs_path
     end
 

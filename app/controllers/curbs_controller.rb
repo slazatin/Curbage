@@ -9,6 +9,7 @@ class CurbsController < ApplicationController
 
 	def show
 		@curb= Curb.find(params[:id])
+		@current_user =  current_user
 	end
 
 	def new

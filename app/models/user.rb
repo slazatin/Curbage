@@ -21,7 +21,9 @@ def authenticate(test_password)
 	if BCrypt::Password.new(self.password_digest)==test_password
 		self
 	else
+		flash[:error] = "Invalid email/password combination"
 		false
+
 	end
 	end
 end
