@@ -1,6 +1,6 @@
 class Curb
   include Mongoid::Document
-
+  include Mongoid::Timestamps
   include Mongoid::Paperclip
 
   has_mongoid_attached_file :picture

@@ -5,6 +5,7 @@ class User
   field :email, type: String
   field :password_digest, type: String
 
+
   validates :email, :name, uniqueness: :true, presence: :true
   has_many :curbs
 

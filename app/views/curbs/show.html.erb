@@ -13,7 +13,7 @@
 	</br>
   </br>
 
-  <% if @current_user.id.to_s == @curb.name.to_s %>
+  <% if @current_user.name.to_s == @curb.name.to_s %>
        <tr>
           <td><%= link_to 'Edit', edit_curb_path,:class => "btn btn-default btn-xs" %></td> 
 

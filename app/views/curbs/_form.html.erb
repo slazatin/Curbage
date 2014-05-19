@@ -6,7 +6,7 @@
 
 Title: <%= f.text_field :subject, :placeholder => 'Free Stuff'  %>
 
-Posted by:<%= f.collection_select :name, @user, :id, :name %>
+Posted by:<%= f.collection_select :name, @user, :name, :name %>
 
 
 Address: <%= f.text_field :address, :style => "width:200px;height:80px;" %>
@@ -15,6 +15,9 @@ Message: <%= f.text_field :content, :style => "width:300px;height:150px;"%>
 </br></br>
 <%= f.file_field :picture,  :style => "margin:0 auto;",:class =>"form-group" %>
 </br>
+
 <%= f.submit "Curb It", :class =>"btn btn-default btn-lg"%>
+
+
 <%end%>
 </div>
