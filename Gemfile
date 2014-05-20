@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.0'
 # Use SCSS for stylesheets
 gem 'mongoid', github: 'mongoid/mongoid'
-gem 'genghis', '~> 1.4.1'
+
 gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 gem 'aws-sdk'
 # Use SCSS for stylesheets
