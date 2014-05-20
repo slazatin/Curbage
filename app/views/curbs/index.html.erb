@@ -1,53 +1,70 @@
-<% if flash[:success] %>
-  <div class="alert alert-success"><%= flash[:success] %></div>
-<% end %>
-</br>
 
-</br>
-</br>
+  <% if flash[:success] %>
+    <div class="alert alert-success"><%= flash[:success] %></div>
+  <% end %>
+  </br>
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
-    <!--All the content inside the carousel-->
-    <div class="carousel-inner">
-    <!--This will be the first slide that shows up on the carousel -->
-        <div class="item active">
-            <div class="jumbotron">
-              <h1>Welcome to CurbAlert</h1>
-              <p>Scroll to see free stuff in your area!</p>
+  </br>
+  </br>
+
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+
+      <!--All the content inside the carousel-->
+      <div class="carousel-inner">
+      <!--This will be the first slide that shows up on the carousel -->
+          <div class="item active">
+              <div class="jumbotron">
+                <h1>Welcome to CurbAlert</h1>
+                <p>Scroll to see free stuff in your area!</p>
+              </div>
+          </div>
+          <!-- Here is where the loop through your database begins-->
+          <% @curb.each do |c| %>
+      
+          <div class="item">
+
+            <div id="images">
+             <%= image_tag c.picture.url%>
             </div>
-        </div>
-        <!-- Here is where the loop through your database begins-->
-        <% @curb.each do |c| %>
-    
-        <div class="item">
+              
+            <div class="content">
+              <strong><%= c.subject %> - </strong>
+              <tr>
+                <td><%= link_to 'More Info', curb_path(c) %></td>                
+              </tr>
+              <p><%=c.content%></p>
+              <p>posted by:<%=c.name%></p>
+           <%= c.created_at%>
+            </div>
 
-          <div>
-           <%= image_tag c.picture.url, :style => "width:350px;height:300px; border-radius:1000px;"%>
-          </div>
-            
-          <div class="content">
-            <strong><%= c.subject %> - </strong>
-            <tr>
-              <td><%= link_to 'More Info', curb_path(c) %></td>                
-            </tr>
-            <p><%=c.content%></p>
-            <p>posted by:<%=c.name%></p>
-         
           </div>
 
-        </div>
+         <%end%>
+      </div> <!-- Here is the end of the inner carousel, including that first welcome slide-->
 
-       <%end%>
-    </div> <!-- Here is the end of the inner carousel, including that first welcome slide-->
+    <!-- Controls -->
+      
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>  
+  <script src="bootstrap-carousel.js"></script>
+    <script src= "/jquery.mobile.custom.min.js" ></script> 
+    <script>  
+  $(document).ready(function() {  
+     $("#myCarousel").swiperight(function() {  
+        $("#myCarousel").carousel('prev');  
+      });  
+     $("#myCarousel").swipeleft(function() {  
+        $("#myCarousel").carousel('next');  
+     });  
+  });  
+  </script> 
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
  
   
 
