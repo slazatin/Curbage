@@ -1,4 +1,16 @@
-
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="bootstrap-carousel.js"></script>
+    <script src= "jquery.mobile.custom.min.js" ></script> 
+    <script>  
+  $(document).ready(function() {  
+     $("#myCarousel").swiperight(function() {  
+        $("#myCarousel").carousel('prev');  
+      });  
+     $("#myCarousel").swipeleft(function() {  
+        $("#myCarousel").carousel('next');  
+     });  
+  });  
+  </script> 
   <% if flash[:success] %>
     <div class="alert alert-success"><%= flash[:success] %></div>
   <% end %>
@@ -51,20 +63,12 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
   </div>
-<!--   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>  
-  <script src="bootstrap-carousel.js"></script>
-    <script src= "/jquery.mobile.custom.min.js" ></script> 
-    <script>  
-  $(document).ready(function() {  
-     $("#myCarousel").swiperight(function() {  
-        $("#myCarousel").carousel('prev');  
-      });  
-     $("#myCarousel").swipeleft(function() {  
-        $("#myCarousel").carousel('next');  
-     });  
-  });  
-  </script> 
- -->
+  <div id="wikiInfo">
+  
+  
+</div>
+
+
  
   
 
