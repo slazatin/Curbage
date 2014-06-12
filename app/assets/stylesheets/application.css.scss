@@ -30,6 +30,10 @@ and (max-device-width : 480px) {
 
 .navbar{
 	border-bottom:2px solid black;
+	
+	a.navbar-brand{
+		color:black;
+	}
 
 }
 

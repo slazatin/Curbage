@@ -1,16 +1,6 @@
  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script src="bootstrap-carousel.js"></script>
-    <script src= "jquery.mobile.custom.min.js" ></script> 
-    <script>  
-  $(document).ready(function() {  
-     $("#myCarousel").swiperight(function() {  
-        $("#myCarousel").carousel('prev');  
-      });  
-     $("#myCarousel").swipeleft(function() {  
-        $("#myCarousel").carousel('next');  
-     });  
-  });  
-  </script> 
+ 
+
   <% if flash[:success] %>
     <div class="alert alert-success"><%= flash[:success] %></div>
   <% end %>
@@ -19,34 +9,43 @@
   </br>
   </br>
 
+
+
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
 
       <!--All the content inside the carousel-->
       <div class="carousel-inner">
       <!--This will be the first slide that shows up on the carousel -->
-          <div class="item active">
+          <div class="item active" style="height:300px; margin-top:10px;">
               <div class="jumbotron">
                 <h1>Welcome to CurbAlert</h1>
                 <p>Scroll to see free stuff in your area!</p>
               </div>
           </div>
           <!-- Here is where the loop through your database begins-->
-          <% @curb.each do |c| %>
-      
+          
+           <% @craig.each do |c|%>
           <div class="item">
 
-            <div id="images">
-             <%= image_tag c.picture.url%>
+            <div class="img-rounded">
+             <%= image_tag c["images"][0]["full"]%> 
+              
+               <p><strong><%=c["heading"]%></strong></br>
+               <%=c["location"]["formatted_address"]%></br>
+               Latitude:<%=c["location"]["lat"]%>
+               Longitude:<%=c["location"]["long"]%>
+
+               </p>
             </div>
+
               
             <div class="content">
-              <strong><%= c.subject %> - </strong>
-              <tr>
-                <td><%= link_to 'More Info', curb_path(c) %></td>                
-              </tr>
-              <p><%=c.content%></p>
-              <p>posted by:<%=c.name%></p>
-           <%= c.created_at%>
+
+              <p>
+              </br>
+              <%=c["body"]%>
+              </p>
+          
             </div>
 
           </div>
@@ -63,6 +62,22 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
   </div>
+
+  <script type="text/javascript">// <![CDATA[
+jQuery(document).ready(function(){
+
+  jQuery("#carousel-example-generic").touchwipe({
+          wipeLeft: function() { jQuery("#carousel-example-generic").carousel('next'); },
+          wipeRight: function() { jQuery("#carousel-example-generic").carousel('prev'); },
+          preventDefaultEvents: false
+  });
+});
+
+
+// ]]></script>
+
+
+
   <div id="wikiInfo">
   
   

@@ -1,3 +1,4 @@
+require 'craigslist'
 class CurbsController < ApplicationController
  before_action :authenticate_user
  before_action :set_curb, only: [:show, :edit, :update, :destroy]
@@ -5,6 +6,7 @@ class CurbsController < ApplicationController
 	def index
 		@curb = Curb.all
 		@user = User.all
+		@craig = Curb.party
 	
 	end
 
@@ -57,6 +59,8 @@ class CurbsController < ApplicationController
 		def set_curb
 			@curb = Curb.find(params[:id])
 		end
+
+
 
 		def curb_params
 			params.require(:curb).permit(:name, :subject, :address, :content, :picture)
